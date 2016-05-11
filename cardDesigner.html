@@ -144,7 +144,6 @@
     });
 
     var switchTemplate = function(templatename){
-
         //css should have just one file: <templatename>.css
         var css_path = 'css/';
         //link in the css
@@ -162,12 +161,18 @@
     };
 
     $('.template_switch').click(function(){
+      
       // id of element should be related to the name of the .css and images to be loaded
       var templatename = $(this).attr('id');
       switchTemplate(templatename);
-      //reset barcode
-      $('.barcode').html('<img id="barcodeimg" />');
-      $("#barcodeimg").JsBarcode($('#inputbarcodenumber').val(),{width:1,height:$('.barcode').height(),backgroundColor:'#FFFFFF'});
+
+      // reset barcode
+      $('.barcode').html('<img id="barcodeimg"/>');
+
+      setTimeout(function() {
+        $("#barcodeimg").JsBarcode($('#inputbarcodenumber').val(),{width:1,height:$('.barcode').height(),backgroundColor:'#FFFFFF'});
+     }, 100);
+
     });
 
     //Doesn't work with current way of generating barcodes
