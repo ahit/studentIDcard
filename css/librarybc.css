@@ -73,10 +73,10 @@
     top: 0;
     margin:0;
     padding:0;
-    width: 81mm;
+    width: 86mm;
 }
 .card{
-    height: 48.5mm;
+    height: 53.8mm;
     width: 100%;
     position: relative;
     font-family: "Futura Medium" sans-serif;
@@ -93,7 +93,10 @@
 .logo{
     position: relative;
 }
-
+.footer{
+    position: absolute;
+    bottom: 0;
+}
 .name{
     font-weight: bold;
     color: white;
@@ -112,7 +115,7 @@
     margin: auto;
     z-index:-1;
     text-align: center;
-    padding-top: 2.6mm;
+    padding-top: 4.6mm;
 }
 .footer{
     padding-bottom: .5mm;
