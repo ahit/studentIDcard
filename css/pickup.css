@@ -99,20 +99,12 @@
     top: 0;
     margin:0;
     padding:0;
-    width: 81mm;
+    width: 86mm;
 }
 #controls{
     position: relative;
     left: 100mm;
     width: 40%;
-}
-#container{
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin:0;
-    padding:0;
-    width: 81mm;
 }
 .card_front{
     width: 100%;
@@ -128,8 +120,8 @@
 }
 .card{
     width: 100%;
-    height: 48.5mm;
-    padding-top: 2mm;
+    height: 53.5mm;
+    /*padding-top: 2mm;*/
     position: relative;
     font-family: "Futura Medium" sans-serif;
     text-align: center;
@@ -146,10 +138,11 @@
     width: 3.4cm;
     text-align: right;
     position: relative;
-    left: 45mm;
+    left: 50mm;
 
 }
 .cover{
+  margin-top: 2mm;
   height: 3.4cm;
   width: 2.4cm;
   border: 1px solid white;
@@ -164,13 +157,16 @@
 .logo{
   display:none;
 }
-
+.footer{
+    position: absolute;
+    bottom: 0;
+}
 .name{
     font-weight: bold;
     color: white;
     text-align: right;
     padding-right: 2mm;
-    padding-top: 2mm;
+    padding-top: 6mm;
 }
 .title{
   display: none;
