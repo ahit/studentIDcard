@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@page { size:54mm 86mm;}
+@media screen{
+  #container{
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin:0;
+      padding:0;
+      width: 54mm;
+  }
+  .card{
+      width: 100%;
+      height: 86mm;
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      page-break-after: always;
+      background-image:url('../img/ahis-pickup-watermark.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border:solid 3px lightgrey;
+      margin: 5px;
+
+  }
+  .photo{
+      text-align: center;
+      height: 2.6cm;
+      width: 2.6cm;
+      position: relative;
+      left: 25%;
+      border: 3px solid #c83737;
+      object-fit: cover;
+
+
+  }
+  .cover{
+    height: 2.6cm;
+    width: 2.6cm;
+    object-fit: cover;
+  }
+  .logo{
+      position: relative;
+      padding-bottom: 5px;
+  }
+
+  .name{
+
+  }
+  .title{
+      font-size: x-small;
+  }
+  .expires{
+      font-size: small;
+  }
+  .barcode{
+      width: 90%;
+      margin: auto;
+      font-size:x-small;
+      height: 10mm;
+  }
+  .footer{
+      position: absolute;
+      bottom: 0
+  }
+  .barcodenumber{
+    display:none;
+    font-size:x-small;
+    padding-bottom: 3.5mm;
+  }
+  .cardbody{
+
+  }
+  p{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: x-small;
+
+  }
+}
+@media print{
+#controls_staff{
+    display:none;
+}
+#controls{
+  display:none;
+}
+#container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin:0;
+    padding:0;
+    width: 54mm;
+}
+.card{
+    width: 100%;
+    height: 86mm;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    page-break-after: always;
+    background-image:url('../img/ahis-pickup-watermark.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.photo{
+    text-align: center;
+    height: 2.6cm;
+    width: 2.6cm;
+    position: relative;
+    left: 25%;
+    border: 3px solid #c83737;
+    object-fit: cover;
+
+
+}
+.cover{
+  height: 2.6cm;
+  width: 2.6cm;
+  object-fit: cover;
+}
+.logo{
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.name{
+
+}
+.title{
+    font-size: x-small;
+}
+.expires{
+    font-size: small;
+}
+.barcode{
+    width: 90%;
+    margin: auto;
+    font-size:x-small;
+    height: 10mm;
+}
+.footer{
+    position: absolute;
+    bottom: 0
+}
+.barcodenumber{
+  display:none;
+  font-size:x-small;
+  padding-bottom: 3.5mm;
+}
+.cardbody{
+
+}
+p{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: x-small;
+
+}
+}
