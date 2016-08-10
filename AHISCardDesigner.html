@@ -43,27 +43,39 @@
 
 </body>
 <script type='text/javascript'>
-    $("#barcodeimg").JsBarcode($('#inputbarcodenumber').val(),{width:1,height:$('.barcode').height(),backgroundColor:'#FFFFFF'});
+    // $("#barcodeimg").JsBarcode($('#inputbarcodenumber').val(),{width:1,height:$('.barcode').height(),backgroundColor:'#FFFFFF'});
     var bcnum_pre = "";
     var bcnum_post= "";
     var departmnettag = "";
+    // var cardtemplate = `
+    // <div class='card'>
+    //     <div class='logo'><img src = 'img/logoslogo.png' class = 'logoimg' style='width: 100%'></div>
+    //     <div class='photo'><img src="../img/nophoto.jpg"/></div>
+    //     <div class='name'>Input a Name</div>
+    //     <div class='title'>Staff</div>
+    //     <div class='barcode'></div>
+    //     <div class='barcodenumber'>123</div>
+    //     <div class='cardbody'>
+    //       <ul>
+    //         <li id='dob'>DOB: 15-08-1981</li>
+    //         <li>Emergency Contact:</li>
+    //         <li id='econtact1'>017-XXX-XXXX</li>
+    //         <li id='econtact2'>024-XXX-XXXX</li>
+    //       </ul>
+    //     </div>
+    //     <div class='footer'><img class='footerimg' src = 'img/logoslibraryfooter.png' style='width: 100%'/> </div>
+    // </div>
+    // `;
     var cardtemplate = `
-    <div class='card'>
-        <div class='logo'><img src = 'img/logoslogo.png' class = 'logoimg' style='width: 100%'></div>
-        <div class='photo'><img src="../img/nophoto.jpg"/></div>
-        <div class='name'>Input a Name</div>
-        <div class='title'>Staff</div>
-        <div class='barcode'></div>
-        <div class='barcodenumber'>123</div>
-        <div class='cardbody'>
-          <ul>
-            <li id='dob'>DOB: 15-08-1981</li>
-            <li>Emergency Contact:</li>
-            <li id='econtact1'>017-XXX-XXXX</li>
-            <li id='econtact2'>024-XXX-XXXX</li>
-          </ul>
+    <div class="card">
+        <div class="logo"><img src = "img/ahis-pickup-logo.png" class = "logoimg" style="width: 100%"></div>
+          <div class="name">Input a Name</div>
+        <div class="photo"><img class="cover" src="img/nophoto.jpg" onError="this.src='img/nophoto.jpg';"/></div>
+        <div class="title">is authorized to collect:</div>
+        <div class="cardbody">
+
         </div>
-        <div class='footer'><img class='footerimg' src = 'img/logoslibraryfooter.png' style='width: 100%'/> </div>
+        <div class="footer"><img class="footerimg" src = "img/ahis-pickup-footer.png" style="width: 100%"/> </div>
     </div>
     `;
     $('#photoControl').draggable({
@@ -132,16 +144,28 @@
     //Doesn't work with current way of generating barcodes
     $('#csvgenerate').click(function(){
        var cards = $.csv.toArrays($('#csvdata').val());
-       for(var i=0; i<cards.length; i++){
-              var uid = cards[i][0];
-              var employeenumber= cards[i][1];
-              var sn = cards[i][2];
-              var givenName= cards[i][3];
+       var student_indexs = [2,4,6,8,10,12];
+       for(var i=1; i<cards.length; i++){
               var $card = $($.parseHTML(cardtemplate));
-              $card.find(".name").text(sn+', '+givenName);
+              var uid = cards[i][0];
+              // adding card name
+              if(cards[i][1]){
+                var name = cards[i][1];
+              }
+              else{
+                var name = "Input a Name";
+              }
+              $card.find(".name").text(name);
+              // add student name to card
+              for (var j = 0; j < student_indexs.length; j++) {
+                if(cards[i][student_indexs[j]]){
+                  $card.find(".cardbody").append("<p>"+cards[i][student_indexs[j]]+"</p>");
+                }
+              }
               //$card.find('.barcodenumber').html(bcnum_pre+employeenumber+bcnum_post);
               //$card.find('.barcode').html('<img src="'+bcurl+'?text='+employeenumber+'&size='+bcsize+'"/>');
-              $card.find(".photo").css("background-image", "url('http://192.168.0.19/files/"+employeenumber+"/"+employeenumber+"-"+uid+"-Photo.jpg"+"')");
+              // $card.find(".photo").css("background-image", "url('parent-pictures/"+uid+".JPG')");
+              $card.find(".cover").attr("src", "parent-pictures/"+uid+".JPG");
               $('#container').append($card);
               console.log($card.find(".name").text());
 
