@@ -161,7 +161,7 @@
     };
 
     $('.template_switch').click(function(){
-      
+
       // id of element should be related to the name of the .css and images to be loaded
       var templatename = $(this).attr('id');
       switchTemplate(templatename);
@@ -199,7 +199,7 @@
         $('.name').html($('#inputname').val());
     });
     $('#inputtitle').on("change", function(){
-        $('.title').html(departmenttag+$('#inputtitle').val());
+        $('.title').html($('#inputtitle').val());
     });
     $('#inputecontact1').on("change", function(){
         $('#econtact1').html($('#inputecontact1').val());
